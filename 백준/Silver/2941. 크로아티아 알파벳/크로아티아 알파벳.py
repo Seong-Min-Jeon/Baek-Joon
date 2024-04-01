@@ -1,0 +1,1 @@
+print(len(input().replace('c=','č').replace('c-','ć').replace('dz=','ㅋ').replace('d-','đ').replace('lj','ㅣ').replace('nj','ㅜ').replace('s=','š').replace('z=','ž')))
