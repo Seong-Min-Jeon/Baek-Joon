@@ -1,0 +1,1 @@
+i=input; print(int(i())*int(i()))
