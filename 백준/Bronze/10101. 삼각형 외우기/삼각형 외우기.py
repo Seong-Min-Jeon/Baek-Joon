@@ -1,0 +1,5 @@
+i=input; a,b,c=int(i()),int(i()),int(i())
+if(a+b+c!=180): print('Error'); exit()
+if(a==b==c==60): print('Equilateral')
+elif(a==b or a==c or b==c): print('Isosceles')
+else: print('Scalene')
