@@ -1,0 +1,1 @@
+a,b=map(int,input().split()); print((b-a)//10**len(str(a))+1)
