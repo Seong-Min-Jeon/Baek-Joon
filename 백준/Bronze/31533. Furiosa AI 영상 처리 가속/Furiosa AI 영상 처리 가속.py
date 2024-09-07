@@ -1,0 +1,9 @@
+a=int(input())
+m=list(map(int,input().split()))
+f=min(m)
+s=max(m)
+f/=a
+if(2*f<s):
+    print(2*f)
+else:
+    print(s)
