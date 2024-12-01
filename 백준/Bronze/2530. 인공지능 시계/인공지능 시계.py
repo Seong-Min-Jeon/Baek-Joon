@@ -1,0 +1,9 @@
+a,b,c=map(int,input().split())
+t=int(input())
+h,t=t//3600,t%3600
+m,s=t//60,t%60
+h,m,s=a+h,b+m,c+s
+m,s=m+s//60,s%60
+h,m=h+m//60,m%60
+h=h%24
+print(h,m,s)
