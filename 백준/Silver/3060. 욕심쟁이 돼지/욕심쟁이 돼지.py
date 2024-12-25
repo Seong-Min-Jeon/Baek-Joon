@@ -1,6 +1,6 @@
 ip=input
 for i in range(int(ip())):
-    a=int(ip())
-    b=sum(list(map(int,ip().split())))
-    for i in range(10**9):
-        if(a<b*4**i): print(i+1); break
+    a,b,c=int(ip()),sum(list(map(int,ip().split()))),1
+    while a>=b:
+        b*=4; c+=1
+    print(c)
