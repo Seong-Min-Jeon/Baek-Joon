@@ -1,0 +1,6 @@
+x,y,p,q=map(int,input().split())
+m=set([x*i+p for i in range(101)])
+n=set([y*i+q for i in range(101)])
+s=m.intersection(n)
+if(len(s)==0): print(-1)
+else: print(min(s))
