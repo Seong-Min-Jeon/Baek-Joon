@@ -1,13 +1,17 @@
-p=''
-for _ in range(int(input())):
-    p+='IO'
-p+='I'
+a=''.join(['IO' for _ in range(int(input()))])+'I'
+p=[i for i in range(len(a)-1)]
+p.insert(0,0)
 l=int(input())
 s=input()
-c=0
-for i in range(l):
-    if(s[i]=='I' and i+len(p)-1<l):
-        t=s[i:i+len(p)]
-        if('OO' not in t and 'II' not in t):
+c,i,j=0,0,0
+while j<len(s):
+    if(a[i]==s[j]):
+        i+=1
+        j+=1
+        if(i==len(a)):
             c+=1
+            i=p[i-1]
+    else:
+        if(i!=0): i=p[i-1]
+        else: j+=1
 print(c)
