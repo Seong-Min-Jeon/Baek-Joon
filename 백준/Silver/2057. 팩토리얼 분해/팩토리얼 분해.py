@@ -1,11 +1,8 @@
-from itertools import combinations as c
-l=[1]
-for i in range(1,20):
-    l.append(l[-1]*i)
-s=set()
-for i in range(1,21):
-    for e in c(l,i):
-        s.add(sum(e))
 a=int(input())
-if(a in s): print('YES')
+if(a==0): print('NO'); exit()
+v=2432902008176640000
+for i in range(20,0,-1):
+    v//=i
+    if(a>=v): a-=v
+if(a==0): print('YES')
 else: print('NO')
