@@ -4,21 +4,14 @@ I=sys.stdin.readline
 for _ in range(int(I())):
     r=1
     f=list(I().strip())
-    if(f.count('D')>int(I())): I(); print('error'); continue
-    t=I().strip()
-    d=deque(t[1:len(t)-1].split(','))
+    n=int(I())
+    if(f.count('D')>n): I(); print('error'); continue
+    if(n==0): I(); print('[]'); continue
+    d=deque(map(int,I().strip()[1:-1].split(',')))
     for e in f:
-        if(e=='R'): r*=-1
-        else:
-            if(r==1): d.popleft()
-            else: d.pop()
+        if(e=='R'): r*=-1; continue
+        if(r==1): d.popleft()
+        else: d.pop()
     l=list(d)
     if(r==-1): l.reverse()
-    if(len(l)==0 or l==['']): print('[]')
-    else: 
-        print('[', end='')
-        t=l.pop()
-        for e in l:
-            print(e, end=',')
-        print(t, end='')
-        print(']')
+    print(str(l).replace(' ',''))
