@@ -1,13 +1,9 @@
+import math
 I=input
-n,m=int(I()),int(I())
+n,m=int(I()),I()
 l=list(map(int,I().split()))
-x,z=l[0],n
-while x<=z:
-    y=(x+z)//2
-    t=0
-    for p in l:
-        if(t>=p-y): t=p+y
-        else: t=-1
-    if(t>=n): z=y-1
-    else: x=y+1
-print(x)
+p=0
+for i in range(len(l)):
+    if(i==0): continue
+    p=max(p,math.ceil((l[i]-l[i-1])/2))
+print(max(l[0],p,n-l[-1]))
