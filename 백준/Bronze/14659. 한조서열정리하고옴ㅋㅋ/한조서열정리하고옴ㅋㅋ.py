@@ -1,10 +1,8 @@
-n=int(input())
-l=list(map(int,input().split()))
-m=0
-for i,e in enumerate(l):
-    t=0
-    for j in range(i+1,n):
-        if(l[j]>e): break
-        t+=1
-    m=max(m,t)
+I=input
+I()
+l=list(map(int,I().split()))
+n,m,c=0,0,0
+for e in l:
+    if(e>n): c=0; n=e
+    else: c+=1; m=max(m,c)
 print(m)
