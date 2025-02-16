@@ -1,0 +1,5 @@
+a,b,c,d=map(int,[input() for _ in range(4)])
+if(a<b<c<d): print('Fish Rising')
+elif(a>b>c>d): print('Fish Diving')
+elif(a==b==c==d): print('Fish At Constant Depth')
+else: print('No Fish')
