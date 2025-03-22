@@ -1,0 +1,1 @@
+I=input; print(f'The 1-3-sum is {91+int(I())+3*int(I())+int(I())}')
