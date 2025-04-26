@@ -1,0 +1,5 @@
+def f(a,b,x,y,n,m): return (a*y+x*m+n*b)-(a*m+x*b+n*y)
+a,b,c,d=map(int,input().split())
+w,x,y,z=map(int,input().split())
+if(f(a,b,c,d,w,x)*f(a,b,c,d,y,z)<0 and f(w,x,y,z,a,b)*f(w,x,y,z,c,d)<0): print(1)
+else: print(0)
