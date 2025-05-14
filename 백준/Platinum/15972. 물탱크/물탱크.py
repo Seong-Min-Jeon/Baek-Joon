@@ -8,41 +8,41 @@ q=[]
 for i in range(n+1):
     for j,p in enumerate(map(int,I().split())):
         if(p<0): continue
-        heapq.heappush(q,(p,(i-1,j),(i,j)))
+        heapq.heappush(q,(p,i-1,j,i,j))
 for i in range(n):
     for j,p in enumerate(map(int,I().split())):
         if(p<0): continue
-        heapq.heappush(q,(p,(i,j-1),(i,j)))
+        heapq.heappush(q,(p,i,j-1,i,j))
 t=[]
 r=[]
 while q or t:
     if(not q):
         if(r==l): break
         r=copy.deepcopy(l)
-        for x,y,z in t: 
-            heapq.heappush(q,(x,y,z))
+        for x,y1,y2,z1,z2 in t: 
+            heapq.heappush(q,(x,y1,y2,z1,z2))
         t.clear()
-    p,a,b=heapq.heappop(q)
+    p,a1,a2,b1,b2=heapq.heappop(q)
     f=1
-    if(a[0]<0 or a[1]<0): 
-        if(l[b[0]][b[1]]>p):
-            l[b[0]][b[1]]=p; f=0
+    if(a1<0 or a2<0): 
+        if(l[b1][b2]>p):
+            l[b1][b2]=p; f=0
         else: continue
-    if(b[0]>=n or b[1]>=m):
-        if(l[a[0]][a[1]]>p):
-            l[a[0]][a[1]]=p; f=0
+    if(b1>=n or b2>=m):
+        if(l[a1][a2]>p):
+            l[a1][a2]=p; f=0
         else: continue
     if(f):
-        if(p<l[a[0]][a[1]] and p<l[b[0]][b[1]]):
-            v=min(l[a[0]][a[1]],l[b[0]][b[1]])
-            l[a[0]][a[1]],l[b[0]][b[1]]=v,v
-        if(p<l[a[0]][a[1]] and p>=l[b[0]][b[1]]):
-            l[a[0]][a[1]]=p
-        if(p>=l[a[0]][a[1]] and p<l[b[0]][b[1]]):
-            l[b[0]][b[1]]=p
-        t.append((p,a,b))
+        if(p<l[a1][a2] and p<l[b1][b2]):
+            v=min(l[a1][a2],l[b1][b2])
+            l[a1][a2],l[b1][b2]=v,v
+        if(p<l[a1][a2] and p>=l[b1][b2]):
+            l[a1][a2]=p
+        if(p>=l[a1][a2] and p<l[b1][b2]):
+            l[b1][b2]=p
+        t.append((p,a1,a2,b1,b2))
         continue
-    for x,y,z in t: 
-        heapq.heappush(q,(x,y,z))
+    for x,y1,y2,z1,z2 in t: 
+        heapq.heappush(q,(x,y1,y2,z1,z2))
     t.clear()
 print(sum(sum(e) for e in l))
