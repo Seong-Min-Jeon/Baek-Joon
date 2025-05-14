@@ -19,7 +19,9 @@ while q or t:
     if(not q):
         if(r==l): break
         r=copy.deepcopy(l)
-        for x,y,z in t: heapq.heappush(q,(x,y,z)); t.clear()
+        for x,y,z in t: 
+            heapq.heappush(q,(x,y,z))
+        t.clear()
     p,a,b=heapq.heappop(q)
     f=1
     if(a[0]<0 or a[1]<0): 
