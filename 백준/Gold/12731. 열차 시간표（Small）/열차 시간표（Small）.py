@@ -9,14 +9,12 @@ for n in range(int(I())):
         s,d=I().split()
         i,j=int(s.split(":")[0]),int(s.split(":")[1])
         k,l=int(d.split(":")[0]),int(d.split(":")[1])+t
-        x.append([i*100+j,k*100+l,0])
+        x.append([i*60+j,k*60+l,0])
     for _ in range(b):
         s,d=I().split()
         i,j=int(s.split(":")[0]),int(s.split(":")[1])
-        if(j>=60): j-=60; i+=1
         k,l=int(d.split(":")[0]),int(d.split(":")[1])+t
-        if(l>=60): l-=60; k+=1
-        x.append([i*100+j,k*100+l,1])
+        x.append([i*60+j,k*60+l,1])
     heapq.heapify(x)
     a,b=[],[]
     p,q=0,0
