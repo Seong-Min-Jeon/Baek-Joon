@@ -18,7 +18,7 @@ for _ in range(int(I())):
     c=0
     for e in t:
         if(c and len(e)!=0): f=1; break
-        if(len(e)==0 and len(a)!=0 and len(b)==0): c=1; continue
+        if(len(e)==0 and len(a)!=0 and len(b)==0): f=1; continue
         elif(len(e)==0 and len(a)!=0 and len(b)!=0): c=1; continue
         elif(len(e)==0): continue
         if(len(a)==0): a=e; x+=1
