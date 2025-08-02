@@ -4,18 +4,8 @@ n,m,k=map(int,I().split())
 l=[[] for _ in range(n+1)]
 for _ in range(m):
     a,b,c=map(int,I().split())
-    f=1
-    for i in range(len(l[a])):
-        if(l[a][i][0]==b):
-            l[a][i]=(b,min(c,l[a][i][1]))
-            f=0
-    if(f): l[a].append((b,c))
-    f=1
-    for i in range(len(l[b])):
-        if(l[b][i][0]==a):
-            l[b][i]=(a,min(c,l[b][i][1]))
-            f=0
-    if(f): l[b].append((a,c))
+    l[a].append((b,c))
+    l[b].append((a,c))
 r=[[1e99]*(n+1) for _ in range(k+1)]
 q=[(0,1,0)]
 r[0][1]=0
