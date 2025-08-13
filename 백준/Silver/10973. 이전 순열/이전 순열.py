@@ -4,7 +4,7 @@ k,v=0,0
 for i in range(n):
     if(l[i]<v): k=i
     v=l[i]
-t=sorted(l[k-1:].copy())
-v=t[t.index(l[k-1])-1]
+t=sorted(l[k-1:].copy(),reverse=True)
+v=t[t.index(l[k-1])+1]
 t.remove(v)
-print(*l[:k-1],v,*reversed(t))
+print(*l[:k-1],v,*t)
