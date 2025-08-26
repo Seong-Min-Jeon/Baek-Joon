@@ -1,23 +1,25 @@
-import sys,heapq
+import sys
 I=sys.stdin.readline
 f=lambda:map(int,I().split())
 n,m=f()
-l=[[] for _ in range(n+1)]
+l={}
 for _ in range(m):
     i,j,d=f()
-    l[i].append((j,d))
-    l[j].append((i,d))
+    if(d not in l): l[d]=[]
+    l[d].append((i,j))
 s,z=f()
-r=[{1e20:1e20} for _ in range(n+1)]
-r[s][0]=0
-q=[(0,s,0)]
-while q:
-    d,p,x=heapq.heappop(q)
-    if(r[p].get(x,1e20)<d): continue
-    for i,e in l[p]:
-        if(e>x and r[i].get(e,1e20)>d+e):
-            r[i][e]=d+e
-            q.append((d+e,i,e))
-m=min([e for e in r[z].values()])
-if(m==1e20): print('DIGESTA')
-else: print(m)
+x=[1e20]*(n+1)
+y=[1e20]*(n+1)
+y[s]=0
+for d in sorted(l.keys()):
+    e=l[d]
+    for i,j in e:
+        x[i]=min(x[i],y[j]+d)
+        x[j]=min(x[j],y[i]+d)
+    for i,j in e:
+        y[i]=min(y[i],x[i])
+        y[j]=min(y[j],x[j])
+        x[i]=1e20
+        x[j]=1e20
+if(y[z]==1e20): print('DIGESTA')
+else: print(y[z])
