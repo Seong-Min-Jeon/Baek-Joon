@@ -8,25 +8,16 @@ for _ in range(m):
     l[i].append((j,d))
     l[j].append((i,d))
 s,z=f()
-r=[[(1e99,0)] for _ in range(n+1)]
-r[s].append((0,0))
+r=[{1e20:1e20} for _ in range(n+1)]
+r[s][0]=0
 q=[(0,s,0)]
 while q:
     d,p,x=heapq.heappop(q)
-    b=0
-    for g,y in r[p]:
-        if(g<d and y<x): b=1
-    if(b): continue
+    if(r[p].get(x,1e20)<d): continue
     for i,e in l[p]:
-        if(e<=x): continue
-        b=1
-        for g,y in r[i]:
-            if(d+e>g and e>y): b=0
-        if(b):
-            r[i].append((d+e,e))
+        if(e>x and r[i].get(e,1e20)>d+e):
+            r[i][e]=d+e
             q.append((d+e,i,e))
-m=1e99
-for g,y in r[z]:
-    m=min(m,g)
-if(m==1e99): print('DIGESTA')
+m=min([e for e in r[z].values()])
+if(m==1e20): print('DIGESTA')
 else: print(m)
