@@ -15,7 +15,7 @@ for k in range(int(I())):
         d,c,p=heapq.heappop(q)
         if(r[p][1][0]<d): continue
         for i,e,f in l[p]:
-            if(r[i][1][0]>d+e):
+            if(r[i][1][0]>d+e or (r[i][1][0]==d+e and r[i][1][1]>c-f)):
                 r[i][1]=(d+e,c-f)
                 r[i].sort()
                 heapq.heappush(q,(d+e,c-f,i))
