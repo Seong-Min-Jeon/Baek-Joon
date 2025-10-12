@@ -1,0 +1,6 @@
+t=input().strip().split()
+a=3600*int(t[0])+60*int(t[2])+int(t[4])
+t=input().strip().split()
+b=3600*int(t[0])+60*int(t[2])+int(t[4])
+if(b>=a): print(b-a)
+else: print(b+24*3600-a)
