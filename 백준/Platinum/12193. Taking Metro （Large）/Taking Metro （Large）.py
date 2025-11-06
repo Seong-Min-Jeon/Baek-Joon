@@ -5,15 +5,18 @@ for T in range(int(I())):
     I()
     l=[[]]
     o={}
-    for k in range(1,int(I())+1):
+    n=int(I())
+    f=0
+    for k in range(1,n+1):
         s,w=F()
+        f=max(f,s)
         t=[[] for _ in range(s+1)]
         for i,e in enumerate(F()):
             t[i+1].append((k,i+2,e))
             t[i+2].append((k,i+1,e))
         l.append(t)
         o[k]=w
-    m=[[[] for _ in range(1001)] for _ in range(1001)]
+    m=[[[] for _ in range(f+1)] for _ in range(n+1)]
     s=set()
     for _ in range(int(I())):
         a,b,c,d,w=F()
@@ -24,8 +27,8 @@ for T in range(int(I())):
     print(f"Case #{T+1}:")
     for _ in range(int(I())):
         a,b,x,y=F()
-        r=[[1e99]*(1001) for _ in range(1001)]
-        v=[[1e99]*(1001) for _ in range(1001)]
+        r=[[1e99]*(f+1) for _ in range(n+1)]
+        v=[[1e99]*(f+1) for _ in range(n+1)]
         r[a][b]=0
         q=[(0,0,a,b)]        
         while q:
