@@ -1,9 +1,5 @@
 while True:
     try:
         n,k=map(int,input().split())
-        r=n
-        while n>=k:
-            r+=n//k
-            n=n-k*(n//k)+n//k
-        print(r)
+        print(n+int((n-1)/(k-1)))
     except: break
