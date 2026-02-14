@@ -1,13 +1,15 @@
-n=int(input())
-s=[*map(int,input().strip())]
-i=0
-c,p=0,0
-while True:
-    if(i==n):break
-    if(s[i]==0 and p//100!=0):
-        if(p%10==0): i-=2; c+=1; p=0; continue
-        else: i-=1; c+=1; p=0; continue
-    if(p*10+s[i]<=641): p=p*10+s[i]
-    else: c+=1; p=s[i]
-    i+=1
-print(c+1)
+import sys
+I=sys.stdin.readline
+n=int(I())
+s=I().strip()
+d=[1e99]*(n+1)
+d[0]=0
+for i in range(1,n+1):
+    for k in range(1,4):
+        j=i-k
+        if(j<0): break
+        if(s[j]=='0'): continue
+        v=int(s[j:i])
+        if(1<=v<=641):
+            d[i]=min(d[i],d[j]+1)
+print(d[n])
