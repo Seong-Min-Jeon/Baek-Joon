@@ -2,7 +2,7 @@ n=int(input())
 s=[*map(int,input().strip())]
 i=0
 c,p=0,0
-for _ in range(10):
+while True:
     if(i==n):break
     if(s[i]==0 and p//100!=0):
         if(p//10==0): i-=3; c+=1; p=0; continue
