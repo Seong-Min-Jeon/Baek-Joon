@@ -1,0 +1,1 @@
+I=input;I();print('NO' if int(I().strip(),base=2)%2**int(I()) else 'YES')
