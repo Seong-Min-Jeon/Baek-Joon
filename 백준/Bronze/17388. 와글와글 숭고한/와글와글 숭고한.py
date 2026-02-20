@@ -1,0 +1,6 @@
+a,b,c=map(int,input().split())
+if(a+b+c>=100): print('OK'); exit()
+m=min(a,b,c)
+if(m==a): print('Soongsil')
+if(m==b): print('Korea')
+if(m==c): print('Hanyang')
