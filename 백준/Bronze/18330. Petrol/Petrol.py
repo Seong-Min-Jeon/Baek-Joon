@@ -1,0 +1,9 @@
+a,b=int(input()),int(input())
+r=0
+if(a>=60+b):
+    r+=1500*(60+b)
+    a-=60+b
+    r+=3000*a
+else:
+    r+=1500*a
+print(r)
